@@ -113,9 +113,7 @@ function FloatingParticles() {
             <bufferGeometry>
                 <bufferAttribute
                     attach="attributes-position"
-                    count={200}
-                    array={particlesPosition}
-                    itemSize={3}
+                    args={[particlesPosition, 3]}
                 />
             </bufferGeometry>
             <pointsMaterial
