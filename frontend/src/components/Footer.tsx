@@ -17,7 +17,7 @@ const quickLinks = [
 const services = ['Passport', 'Visa', 'Flights', 'Insurance'];
 
 const socialLinks = [
-    { icon: FaWhatsapp, href: 'https://wa.me/919820446490', color: '#25D366' },
+    { icon: FaWhatsapp, href: 'https://wa.me/919820446490?text=Hi%20Bernice%20Tours!%20I%20am%20interested%20in%20your%20passport%20and%20visa%20services.%20Could%20you%20please%20help%20me%20with%20an%20enquiry%3F', color: '#25D366' },
     { icon: FaInstagram, href: '#', color: '#E4405F' },
     { icon: FaFacebookF, href: '#', color: '#1877F2' },
 ];
@@ -144,7 +144,7 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li style={{ marginBottom: '10px' }}>
-                                <a href="https://wa.me/919820446490" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#94a3b8', fontSize: '13px', textDecoration: 'none' }}>
+                                <a href="https://wa.me/919820446490?text=Hi%20Bernice%20Tours!%20I%20am%20interested%20in%20your%20passport%20and%20visa%20services.%20Could%20you%20please%20help%20me%20with%20an%20enquiry%3F" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#94a3b8', fontSize: '13px', textDecoration: 'none' }}>
                                     <FaWhatsapp size={14} style={{ color: '#f59e0b' }} /> 9820446490
                                 </a>
                             </li>

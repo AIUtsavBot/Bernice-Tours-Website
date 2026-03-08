@@ -18,7 +18,7 @@ const contactInfo = [
         icon: FaWhatsapp,
         label: 'WhatsApp',
         value: '9820446490',
-        href: 'https://wa.me/919820446490',
+        href: 'https://wa.me/919820446490?text=Hi%20Bernice%20Tours!%20I%20am%20interested%20in%20your%20passport%20and%20visa%20services.%20Could%20you%20please%20help%20me%20with%20an%20enquiry%3F',
         bgColor: '#dcfce7',
         iconBg: '#22c55e',
     },
@@ -51,26 +51,29 @@ export default function Contact() {
         setErrorMessage('');
 
         try {
-            const { name, email, phone, service, message } = formData;
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // Create the pre-filled WhatsApp message format
-            const textRaw = `*New Inquiry from Website*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n\n*Message:*\n${message}`;
-            const whatsappText = encodeURIComponent(textRaw);
+            const data = await response.json();
 
-            // Bernice's WhatsApp Number
-            const whatsappUrl = `https://wa.me/919820446490?text=${whatsappText}`;
-
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-
-            // Show success on form
-            setStatus('success');
-            setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-            setTimeout(() => setStatus('idle'), 5000);
+            if (response.ok && data.success) {
+                // Show success on form
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setErrorMessage(data.error || 'Failed to send message. Please try again.');
+            }
         } catch (error) {
             setStatus('error');
-            setErrorMessage('Unable to redirect to WhatsApp. Please contact us directly.');
-            console.error('WhatsApp redirect error:', error);
+            setErrorMessage('Unable to connect to server. Please try again or contact us directly.');
+            console.error('Submission error:', error);
         }
     };
 

@@ -18,7 +18,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/919820446490?text=Hi%2C%20I%20need%20help%20with%20passport%2Fvisa%20services"
+        href="https://wa.me/919820446490?text=Hi%20Bernice%20Tours!%20I%20am%20interested%20in%20your%20passport%20and%20visa%20services.%20Could%20you%20please%20help%20me%20with%20an%20enquiry%3F"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 hover:shadow-xl transition-all duration-300 group"
