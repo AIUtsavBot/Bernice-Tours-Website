@@ -32,9 +32,6 @@ const contactInfo = [
     },
 ];
 
-// Backend API URL
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
 export default function Contact() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
@@ -54,29 +51,26 @@ export default function Contact() {
         setErrorMessage('');
 
         try {
-            const response = await fetch(`${API_URL}/api/contact`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            const { name, email, phone, service, message } = formData;
 
-            const data = await response.json();
+            // Create the pre-filled WhatsApp message format
+            const textRaw = `*New Inquiry from Website*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${service}\n\n*Message:*\n${message}`;
+            const whatsappText = encodeURIComponent(textRaw);
 
-            if (data.success) {
-                setStatus('success');
-                setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-                // Reset success message after 5 seconds
-                setTimeout(() => setStatus('idle'), 5000);
-            } else {
-                setStatus('error');
-                setErrorMessage(data.error || 'Something went wrong. Please try again.');
-            }
-        } catch {
+            // Bernice's WhatsApp Number
+            const whatsappUrl = `https://wa.me/919820446490?text=${whatsappText}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Show success on form
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+            setTimeout(() => setStatus('idle'), 5000);
+        } catch (error) {
             setStatus('error');
-            setErrorMessage('Unable to connect to server. Please try again or contact us directly.');
-            console.error('Contact form error:', errorMessage);
+            setErrorMessage('Unable to redirect to WhatsApp. Please contact us directly.');
+            console.error('WhatsApp redirect error:', error);
         }
     };
 
