@@ -52,8 +52,9 @@ export default function Contact() {
             return "Please enter a valid name (letters only).";
         }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-        if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const trimmedEmail = formData.email.trim();
+        if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
             return "Please enter a valid email address (e.g. name@gmail.com).";
         }
 
