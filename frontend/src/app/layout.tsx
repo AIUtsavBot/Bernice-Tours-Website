@@ -9,12 +9,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Bernice Tours N Travels | Passport, Visa & Flight Booking Services",
-  description: "Your trusted partner for passport services, visa assistance, and flight bookings. Experience seamless travel planning with Bernice Tours N Travels. Contact us for all your travel documentation needs.",
+  title: "Bernice Tours | Passport, Visa & Flight Booking Services",
+  description: "Your trusted partner for passport services, visa assistance, and flight bookings. Experience seamless travel planning with Bernice Tours. Contact us for all your travel documentation needs.",
   keywords: "passport services, visa assistance, flight booking, travel agency, Bernice Tours, international travel, visa application, passport renewal",
-  authors: [{ name: "Bernice Tours N Travels" }],
+  authors: [{ name: "Bernice Tours" }],
   openGraph: {
-    title: "Bernice Tours N Travels | Passport, Visa & Flight Booking Services",
+    title: "Bernice Tours | Passport, Visa & Flight Booking Services",
     description: "Your trusted partner for passport services, visa assistance, and flight bookings.",
     type: "website",
     locale: "en_IN",

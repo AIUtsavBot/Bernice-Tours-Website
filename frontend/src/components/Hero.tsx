@@ -244,7 +244,7 @@ export default function Hero() {
                             }} />
                             <Image
                                 src="/logo.png"
-                                alt="Bernice Tours N Travels"
+                                alt="Bernice Tours"
                                 fill
                                 className="object-contain p-6"
                                 priority

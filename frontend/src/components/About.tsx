@@ -80,7 +80,7 @@ export default function About() {
                             }}>
                                 <Image
                                     src="/logo.png"
-                                    alt="Bernice Tours N Travels"
+                                    alt="Bernice Tours"
                                     fill
                                     className="object-contain p-6"
                                 />
@@ -120,7 +120,7 @@ export default function About() {
                             lineHeight: '1.7',
                             marginBottom: '28px',
                         }}>
-                            Since 2009, <strong style={{ color: '#374151' }}>Bernice Tours N Travels</strong> has been
+                            Since 2009, <strong style={{ color: '#374151' }}>Bernice Tours</strong> has been
                             Mumbai&apos;s preferred choice for passport and visa services. Over 50,000 happy travelers served.
                         </p>
 

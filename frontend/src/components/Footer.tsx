@@ -170,7 +170,7 @@ export default function Footer() {
                     paddingTop: '24px',
                 }}>
                     <p style={{ color: '#64748b', fontSize: '13px' }}>
-                        © {currentYear} Bernice Tours N Travels
+                        © {currentYear} Bernice Tours
                     </p>
                     <p style={{ color: '#64748b', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                         Made with
