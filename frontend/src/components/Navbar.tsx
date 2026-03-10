@@ -69,7 +69,6 @@ export default function Navbar() {
                             >
                                 Bernice Tours
                             </motion.h1>
-                            <p className="text-xs sm:text-sm" style={{ color: '#6b7280', margin: 0 }}>N Travels</p>
                         </div>
                     </Link>
 

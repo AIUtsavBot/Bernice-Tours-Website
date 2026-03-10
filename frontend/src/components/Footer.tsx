@@ -67,7 +67,6 @@ export default function Footer() {
                             </motion.div>
                             <div>
                                 <h3 style={{ fontWeight: '700', color: '#ffffff', fontSize: '1rem' }}>Bernice Tours</h3>
-                                <p style={{ fontSize: '12px', color: '#94a3b8' }}>N Travels</p>
                             </div>
                         </Link>
                         <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.7', marginBottom: '16px' }}>

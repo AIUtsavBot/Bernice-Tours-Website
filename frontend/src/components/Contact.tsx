@@ -47,11 +47,14 @@ export default function Contact() {
 
     // Client-side validation function
     const validateForm = () => {
-        if (!formData.name.trim()) return "Please enter your name.";
+        const nameRegex = /^[a-zA-Z\s\.\-']+$/;
+        if (!formData.name.trim() || !nameRegex.test(formData.name.trim())) {
+            return "Please enter a valid name (letters only).";
+        }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
         if (!formData.email.trim() || !emailRegex.test(formData.email)) {
-            return "Please enter a valid email address.";
+            return "Please enter a valid email address (e.g. name@gmail.com).";
         }
 
         // Phone validation (exactly 10 digits)
