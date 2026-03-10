@@ -45,8 +45,38 @@ export default function Contact() {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
+    // Client-side validation function
+    const validateForm = () => {
+        if (!formData.name.trim()) return "Please enter your name.";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+            return "Please enter a valid email address.";
+        }
+
+        // Basic phone validation (allowing digits, space, +, -, minimum 8 chars)
+        const phoneRegex = /^[\d\s+-]{8,}$/;
+        if (!formData.phone.trim() || !phoneRegex.test(formData.phone)) {
+            return "Please enter a valid phone number (min. 8 digits).";
+        }
+
+        if (!formData.service) return "Please select a service.";
+        if (formData.message.trim().length < 10) return "Message must be at least 10 characters long.";
+
+        return null;
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Run validation first
+        const validationError = validateForm();
+        if (validationError) {
+            setStatus('error');
+            setErrorMessage(validationError);
+            return;
+        }
+
         setStatus('loading');
         setErrorMessage('');
 
