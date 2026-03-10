@@ -54,14 +54,13 @@ export default function Contact() {
             return "Please enter a valid email address.";
         }
 
-        // Basic phone validation (allowing digits, space, +, -, minimum 8 chars)
-        const phoneRegex = /^[\d\s+-]{8,}$/;
+        // Phone validation (exactly 10 digits)
+        const phoneRegex = /^\d{10}$/;
         if (!formData.phone.trim() || !phoneRegex.test(formData.phone)) {
-            return "Please enter a valid phone number (min. 8 digits).";
+            return "Please enter a valid 10-digit phone number.";
         }
 
         if (!formData.service) return "Please select a service.";
-        if (formData.message.trim().length < 10) return "Message must be at least 10 characters long.";
 
         return null;
     };
